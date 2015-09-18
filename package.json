@@ -1,0 +1,30 @@
+{
+  "name": "vdom-element",
+  "description": "A sprinkle of component and JSX sugar on top of virtual-dom&#x27;s &#x60;h&#x60;",
+  "repository": "git://github.com/ashaffer/vdom-element.git",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "rm -rf lib && babel src --out-dir lib",
+    "postpublish": "rm -rf lib"
+  },
+  "peerDependencies": {
+    "virtual-dom": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-tape-runner": "^1.2.0",
+    "standard": "^5.1.0",
+    "tape": "^4.2.0",
+    "virtual-dom": "^2.1.1"
+  },
+  "engines": {
+    "node": "~0.10.38",
+    "npm": "~2.9.0"
+  },
+  "dependencies": {
+    "flatten-array": "0.0.4",
+    "vdom-thunk": "^3.0.0"
+  }
+}
