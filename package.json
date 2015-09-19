@@ -19,12 +19,8 @@
     "tape": "^4.2.0",
     "virtual-dom": "^2.1.1"
   },
-  "engines": {
-    "node": "~0.10.38",
-    "npm": "~2.9.0"
-  },
   "dependencies": {
     "flatten-array": "0.0.4",
-    "vdom-thunk": "^3.0.0"
+    "virtual-component": "^0.1.3"
   }
 }
