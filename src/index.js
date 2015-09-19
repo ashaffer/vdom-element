@@ -3,7 +3,7 @@
  */
 
 import h from 'virtual-dom/h'
-import component from 'virtual-component'
+import Component from 'virtual-component'
 import flatten from 'flatten-array'
 
 /**
@@ -16,7 +16,7 @@ function element (tag, attrs, ...children) {
 
   if (typeof tag !== 'string') {
     attrs.children = children
-    return component(tag, attrs)
+    return new Component(tag, attrs)
   }
 
   return h(tag, attrs, children)
