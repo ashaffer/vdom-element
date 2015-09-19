@@ -3,7 +3,7 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-A sprinkle of component and JSX sugar on top of virtual-dom&#x27;s &#x60;h&#x60;
+A sprinkle of component and JSX sugar on top of virtual-dom's `h`.  Uses [virtual-component](https://github.com/ashaffer/virtual-component) to give your virtual-dom tree a React/deku-like component API.
 
 ## Installation
 
