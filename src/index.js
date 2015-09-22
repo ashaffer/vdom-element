@@ -38,8 +38,8 @@ const propertyMap = {
  */
 
 function element (tag, attrs, ...children) {
-  // Flatten children and strip falsy elements
-  children = children.filter(Boolean)
+  // Flatten children and strip most falsy elements (notably not '0', and 0)
+  children = children.filter(child => ! (child === undefined || child === null || child === false || child === ''))
 
   if (typeof tag !== 'string') {
     return component(tag, attrs, children)
