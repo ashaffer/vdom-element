@@ -9,6 +9,23 @@ A sprinkle of component and JSX sugar on top of virtual-dom's `h`.  Uses [virtua
 
     $ npm install vdom-element
 
+## Usage
+
+```javascript
+import element from 'vdom-element'
+import Dropdown from 'components/dropdown'
+
+function render () {
+  return (
+    <div>
+      <Dropdown open={props.dropdownOpen} />
+    </div>
+  )
+}
+```
+
+Write react-style jsx using components and all of the things you're used to.  vdom-element also allows you to use the native html property names for things like `class` instead of `className`.  You can still also use `className` if you want or if you want to remain compatible with older browsers, but you are also free to use the more idiomatic `class`/`for`/etc.
+
 ## License
 
 The MIT License
