@@ -4,7 +4,34 @@
 
 import h from 'virtual-dom/h'
 import component from 'virtual-component'
-import flatten from 'flatten-array'
+
+/**
+ * Property map
+ */
+
+var propertyMap = {
+  // transformed name
+  'class': 'className',
+  'for': 'htmlFor',
+  'http-equiv': 'httpEquiv',
+  // case specificity
+  'accesskey': 'accessKey',
+  'autocomplete': 'autoComplete',
+  'autoplay': 'autoPlay',
+  'colspan': 'colSpan',
+  'contenteditable': 'contentEditable',
+  'contextmenu': 'contextMenu',
+  'enctype': 'encType',
+  'formnovalidate': 'formNoValidate',
+  'hreflang': 'hrefLang',
+  'novalidate': 'noValidate',
+  'readonly': 'readOnly',
+  'rowspan': 'rowSpan',
+  'spellcheck ': 'spellCheck',
+  'srcdoc': 'srcDoc',
+  'srcset': 'srcSet',
+  'tabindex': 'tabIndex'
+}
 
 /**
  * Element
@@ -12,14 +39,32 @@ import flatten from 'flatten-array'
 
 function element (tag, attrs, ...children) {
   // Flatten children and strip falsy elements
-  children = flatten(children).filter(Boolean)
+  children = children.filter(Boolean)
 
   if (typeof tag !== 'string') {
-    attrs.children = children
-    return component(tag, attrs)
+    return component(tag, attrs, children)
   }
 
-  return h(tag, attrs, children)
+  return h(tag, normalizeAttrs(attrs), children)
+}
+
+/**
+ * Normalize attributes (e.g. class -> className) so that
+ * we can use standard HTML names for things
+ *
+ * Note: This function is mutative for performance.  I think that is probably always ok because of the way attrs
+ * are passed around?  But if it ever gets to be a problem it should be changed.
+ */
+
+function normalizeAttrs (attrs) {
+  for (let key in attrs) {
+    if (attrs.hasOwnProperty(key) && propertyMap[key]) {
+      attrs[propertyMap[key]] = attrs[key]
+      delete attrs[key]
+    }
+  }
+
+  return attrs
 }
 
 /**
