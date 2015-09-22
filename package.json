@@ -2,7 +2,7 @@
   "name": "vdom-element",
   "description": "A sprinkle of component and JSX sugar on top of virtual-dom&#x27;s &#x60;h&#x60;",
   "repository": "git://github.com/ashaffer/vdom-element.git",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "main": "lib/index.js",
   "scripts": {
