@@ -3,7 +3,7 @@
  */
 
 import test from 'tape'
-import vdom-element from '../src'
+import element from '../src'
 
 /**
  * Tests

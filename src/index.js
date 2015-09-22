@@ -9,7 +9,7 @@ import component from 'virtual-component'
  * Property map
  */
 
-var propertyMap = {
+const propertyMap = {
   // transformed name
   'class': 'className',
   'for': 'htmlFor',
