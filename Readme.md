@@ -26,6 +26,20 @@ function render () {
 
 Write react-style jsx using components and all of the things you're used to.  vdom-element also allows you to use the native html property names for things like `class` instead of `className`.  You can still also use `className` if you want or if you want to remain compatible with older browsers, but you are also free to use the more idiomatic `class`/`for`/etc.
 
+## Extra sugar
+
+vdom-element also gives you a tiny bit of extra sugar for your class names.  You may pass an array of class names, or an object mapping class names to boolean values in either the `class` or `className` properties.  E.g.
+
+```javascript
+function render (props) {
+  return (
+    <div class={{completed: props.completed}}>
+      {props.todoText}
+    </div>
+  )
+}
+```
+
 ## License
 
 The MIT License

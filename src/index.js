@@ -57,6 +57,8 @@ function element (tag, attrs, ...children) {
  */
 
 function normalizeAttrs (attrs) {
+  if (!attrs) return attrs
+
   for (let key in attrs) {
     if (attrs.hasOwnProperty(key) && propertyMap[key]) {
       attrs[propertyMap[key]] = attrs[key]
@@ -64,7 +66,34 @@ function normalizeAttrs (attrs) {
     }
   }
 
+  if (attrs.className) {
+    attrs.className = classSugar(attrs.className)
+  }
+
   return attrs
+}
+
+/**
+ * Accept arrays of class names or objects mapping boolean
+ * values to class names: e.g. {complete: true}
+ */
+
+function classSugar (cls) {
+  if (isPlainObject(cls)) {
+    cls = Object.keys(cls).filter(key => cls[key])
+  }
+
+  return Array.isArray(cls)
+    ? cls.join(' ')
+    : cls
+}
+
+/**
+ * Check if something is a plain object
+ */
+
+function isPlainObject (o) {
+  return Object.prototype.toString.call(o) === '[object Object]'
 }
 
 /**
