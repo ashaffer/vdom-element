@@ -3,6 +3,7 @@
  */
 
 import h from 'virtual-dom/h'
+import FocusHook from 'virtual-dom/virtual-hyperscript/hooks/focus-hook'
 import component from 'virtual-component'
 
 /**
@@ -68,6 +69,10 @@ function normalizeAttrs (attrs) {
 
   if (attrs.className) {
     attrs.className = classSugar(attrs.className)
+  }
+
+  if (attrs.focused) {
+    attrs.focused = new FocusHook()
   }
 
   return attrs

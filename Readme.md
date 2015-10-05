@@ -28,13 +28,32 @@ Write react-style jsx using components and all of the things you're used to.  vd
 
 ## Extra sugar
 
+### Class object/array syntax
+
 vdom-element also gives you a tiny bit of extra sugar for your class names.  You may pass an array of class names, or an object mapping class names to boolean values in either the `class` or `className` properties.  E.g.
 
 ```javascript
-function render (props) {
+function render ({props}) {
   return (
     <div class={{completed: props.completed}}>
       {props.todoText}
+    </div>
+  )
+}
+```
+
+### Focusing an element
+
+If you want to set focus on an input or other element, you may do so easily and declaratively, used the special `focused` property.  When it is truthy, `node.focus()` will be called when the element is rendered.  When falsy, it does nothing.  Example:
+
+```javascript
+function render ({props}) {
+  const {editing, text} = props
+
+  return (
+    <div>
+      <div>{text}</div>
+      <input type='text' focused={editing}
     </div>
   )
 }
